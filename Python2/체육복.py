@@ -1,8 +1,9 @@
 def solution(n, lost, reserve):
-    answer = 0
-    if len(lost)<=len(reserve):
-        return n
-    else:
-        print(len(lost+reserve)-len(set(lost+reserve)))
-        return n-len(lost)+len(reserve)-(len(lost+reserve)-len(set(lost+reserve)))
-print(solution(5,[3,2,5],[3,2]))
+    ls = set(lost)-set(reserve)
+    rs = set(reserve)-set(lost)
+    for i in rs:
+        if i-1 in ls:   
+            ls.remove(i-1)
+        elif i+1 in ls:
+            ls.remove(i+1)
+    return n-len(ls)
