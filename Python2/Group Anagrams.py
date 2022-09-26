@@ -4,8 +4,6 @@ class Solution(object):
         chk = []
         for s in strs:
             a="".join(sorted(s))
-
-
         print(res)
         return res
 
